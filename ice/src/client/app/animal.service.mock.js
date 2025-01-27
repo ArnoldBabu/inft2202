@@ -1,56 +1,117 @@
 /*
- *  Service constructor
+ * Constructor for the AnimalService class
  */
 function AnimalService() {
-    // if there is no entry for animals data in local storage
+    function initAnimals() {
+        let animals = []; // Create an empty list of animals
+        let index = 0; // Start with an index of 0
+
+        // Add 300 animals to the list
+        while (animals.length < 300) {
+            animals.push({
+                "name": `name ${index++}`, // Each animal gets a unique name
+                "breed": "Grizzly Bear",  // Default breed
+                "legs": 4,                // Number of legs
+                "eyes": 2,                // Number of eyes
+                "sound": "Moo"           // Default sound
+            });
+        }
+        return animals; // Return the list of animals
+    }
+
+    // Check if there is no "animals" entry in local storage
     if (!localStorage.getItem('animals')) {
-        // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage  
-        // it creates a new entry in local storage and place an empty array.
-        localStorage.setItem('animals', JSON.stringify([]))
-    }    
+        // Create a new "animals" entry in local storage with an empty array
+        localStorage.setItem('animals', JSON.stringify([]));
+    }
 }
 
+/*
+ * Get the list of animals from local storage
+ */
 AnimalService.prototype.getAnimals = function() {
-    // this will always be set, because we did it in the constructor
+    // Always return the animals array (it is set during initialization)
     return JSON.parse(localStorage.getItem('animals'));
-}
+};
 
+/*
+ * Get a specific page of animals based on pagination
+ */
+AnimalService.prototype.getAnimalPage = function(pagination) {
+    return {
+        pagination, // Pagination details (e.g., page number, page size)
+        records: JSON.parse(
+            localStorage
+                .getItem('animals') // Get animals from local storage
+                .slice(
+                    pagination.pageNumber * pagination.pageSize, // Starting index
+                    pagination.pageSize                        // Number of records to fetch
+                )
+        )
+    };
+};
+
+/*
+ * Save a new animal to the list
+ */
 AnimalService.prototype.saveAnimal = function(animal) {
-    // fetch the list of animals
+    // Get the current list of animals
     const animals = this.getAnimals();
-    // see if this animal already exists in the list
-    if (animals.find(a => a.name == animal.name)) {
-        // tell the user we cannot save this
+
+    // Check if an animal with the same name already exists
+    if (animals.find(a => a.name === animal.name)) {
+        // Throw an error if it does
         throw new Error('An animal with that name already exists!');
     }
-    // if it doesn't, add it to the array
+
+    // Add the new animal to the list
     animals.push(animal);
-    // and save it in storage again
+
+    // Save the updated list back to local storage
     localStorage.setItem('animals', JSON.stringify(animals));
-    // tell the user all is well
+
+    // Indicate that the animal was saved successfully
     return true;
-}
+};
 
+/*
+ * Find an animal by name (currently not implemented)
+ */
 AnimalService.prototype.findAnimal = function(animalName) {
-    return null;
-}
+    return null; // Not yet implemented
+};
 
-
+/*
+ * Update an existing animal (currently not implemented)
+ */
 AnimalService.prototype.updateAnimal = function(animal) {
+    return false; // Not yet implemented
+};
 
-    return false;
-}
-
-
+/*
+ * Delete an animal from the list
+ */
 AnimalService.prototype.deleteAnimal = function(animal) {
+    // Get the current list of animals
     const animals = this.getAnimals();
-    const idx = animals.findIndex(a => a.name == animal.name);
+
+    // Find the index of the animal to delete
+    const idx = animals.findIndex(a => a.name === animal.name);
+
+    // If the animal doesn't exist, throw an error
     if (idx === -1) {
         throw new Error('That animal does not exist!');
     }
-    animals.splice(idx, 1);
-    localStorage.setItem('animals', JSON.stringify(animals));
-    return true;
-}
 
+    // Remove the animal from the list
+    animals.splice(idx, 1);
+
+    // Save the updated list back to local storage
+    localStorage.setItem('animals', JSON.stringify(animals));
+
+    // Indicate that the animal was deleted successfully
+    return true;
+};
+
+// Create an instance of the AnimalService class
 const animalService = new AnimalService();
