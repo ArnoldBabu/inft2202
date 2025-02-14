@@ -1,7 +1,7 @@
-/*
-    Name: Arnold Babu
-    filename: app.js
-    Course: INFT 2202
-    Date: January 10, 2025
-    Description: This is my animal delete sheet.
-*/
+/**
+ * Arnold Babu
+ * INFT 2202
+ * January 10, 2025
+ * This is my general style sheet.
+ *
+ */
