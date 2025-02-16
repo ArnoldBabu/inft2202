@@ -1,0 +1,41 @@
+<!-- // Author: Arnold Babu
+// Created: 15th Feb 2025
+// Description: is a simple about page. It contains a simple description of the product management system. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+
+    <h2>Add New Product</h2>
+
+    <form id="productForm">
+        <div class="mb-3">
+            <label class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="productName" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" id="productDescription" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Stock</label>
+            <input type="number" class="form-control" id="productStock" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control" id="productPrice" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Product</button>
+        <a href="list.html" class="btn btn-secondary">View Products</a>
+    </form>
+
+    <script src="js/create.js"></script>
+
+</body>
+</html>
