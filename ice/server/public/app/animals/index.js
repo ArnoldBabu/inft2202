@@ -1,11 +1,4 @@
-/*
-    Name: Arnold Babu
-    filename: index.js
-    Course: INFT 2202
-    Date: January 24, 2025
-    Description: This is my index file.
-*/
-import animalService from "../animal.service.mock.js";
+import animalService from "../animal.service.js";
 
 async function animal(name) {
     const form = document.createElement('form');
@@ -169,7 +162,7 @@ async function animal(name) {
             });
         }
         catch(err){
-//show error on page
+//show err on page
             description = err;
         }
     }
