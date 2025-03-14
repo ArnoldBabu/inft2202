@@ -1,39 +1,5 @@
-/*
-Author: Arnold Babu
-Created: 15th Feb 2025
-Description: This is a simple CSS file for the about page
-*/
-body {
-    font-family: sans-serif;
-}
-
-.Outerabout{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f9f9f9;
-}
-.about {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border: 2px solid black;
-    box-shadow: #f9f9f9;
-    border-radius: 10px;
-    width: 50%;
-    color: black;
-}
-.about h1 {
-    font-size: 2em;
-    color: black;
-}
-.about p {
-    font-size: 1.2em;
-    color: black;
-    font-weight: bolder;
+/* Custom CSS for error messages */
+.text-danger {
+    font-size: 0.875em;
+    margin-top: 0.25rem;
 }
