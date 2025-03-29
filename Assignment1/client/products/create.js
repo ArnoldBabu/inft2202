@@ -1,5 +1,6 @@
-// src/client/app/products/create.js
-import ProductService from './product.mock.service.js'; // Changed to mock service
+// This script handles the creation and editing of products in a web application.
+// It includes form validation, auto-filling the form for editing, and submitting the form data to a mock product service.
+import ProductService from './product.service.mock.js'; // Changed to mock service
 import Product from './product.js';
 
 const params = new URLSearchParams(window.location.search);

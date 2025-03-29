@@ -1,5 +1,28 @@
 [
-    {
+  {
+    "name": "Camera",
+    "description": "Sony",
+    "stock": 10,
+    "price": 59.99,
+    "listedBy": "100925210",
+    "listedAt": "2025-03-22T05:41:18.348Z"
+  },
+  {
+    "listedAt": "2025-03-27T18:27:36.585Z"
+  },
+  {
+    "listedAt": "2025-03-27T18:30:54.374Z"
+  },
+  {
+    "listedAt": "2025-03-27T18:31:17.803Z"
+  },
+  {
+    "username": "testuser",
+    "password": "testpass",
+    "listedAt": "2025-03-29T01:23:27.965Z"
+  },
+  {
+    "0": {
       "name": "Camera",
       "description": "Sony",
       "stock": 10,
@@ -7,13 +30,20 @@
       "listedBy": "100925210",
       "listedAt": "2025-03-22T05:41:18.348Z"
     },
-    {
+    "1": {
       "listedAt": "2025-03-27T18:27:36.585Z"
     },
-    {
+    "2": {
       "listedAt": "2025-03-27T18:30:54.374Z"
     },
-    {
+    "3": {
       "listedAt": "2025-03-27T18:31:17.803Z"
-    }
-  ]
+    },
+    "4": {
+      "username": "testuser",
+      "password": "testpass",
+      "listedAt": "2025-03-29T01:23:27.965Z"
+    },
+    "listedAt": "2025-03-29T01:27:36.858Z"
+  }
+]
